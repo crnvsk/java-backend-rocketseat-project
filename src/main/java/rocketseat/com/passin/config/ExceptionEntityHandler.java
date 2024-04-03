@@ -16,7 +16,7 @@ import rocketseat.com.passin.dto.general.ErrorResponseDTO;
 public class ExceptionEntityHandler {
     
     @ExceptionHandler(EventNotFoundException.class)
-    public ResponseEntity handleEventNotFound(EventNotFoundException exception){
+    public ResponseEntity<Void> handleEventNotFound(EventNotFoundException exception){
         return ResponseEntity.notFound().build();
     }
 
@@ -26,17 +26,17 @@ public class ExceptionEntityHandler {
     }
 
     @ExceptionHandler(AttendeeNotFoundException.class)
-    public ResponseEntity handleAttendeeNotFound(AttendeeNotFoundException exception){
+    public ResponseEntity<Void> handleAttendeeNotFound(AttendeeNotFoundException exception){
         return ResponseEntity.notFound().build();
     }
 
     @ExceptionHandler(AttendeeAlreadyExistsException.class)
-    public ResponseEntity handleAttendeeAlreadyExists(AttendeeAlreadyExistsException exception){
+    public ResponseEntity<Void> handleAttendeeAlreadyExists(AttendeeAlreadyExistsException exception){
         return ResponseEntity.status(HttpStatus.CONFLICT).build();
     }
 
     @ExceptionHandler(CheckInAlreadyExistsException.class)
-    public ResponseEntity handleCheckInAlreadyExists(CheckInAlreadyExistsException exception){
+    public ResponseEntity<Void> handleCheckInAlreadyExists(CheckInAlreadyExistsException exception){
         return ResponseEntity.status(HttpStatus.CONFLICT).build();
     }
 

@@ -1,5 +1,7 @@
 package rocketseat.com.passin.controllers;
 
+import java.net.URI;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +30,7 @@ public class AttendeeController {
     }
 
     @PostMapping("/{attendeeId}/check-in")
-    public ResponseEntity registerCheckIn(@PathVariable String attendeeId, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<URI> registerCheckIn(@PathVariable String attendeeId, UriComponentsBuilder uriComponentsBuilder) {
         this.attendeeService.checkInAttendee(attendeeId);
 
         var uri = uriComponentsBuilder.path("/attendees/{attendeeId}/badge").buildAndExpand(attendeeId).toUri();

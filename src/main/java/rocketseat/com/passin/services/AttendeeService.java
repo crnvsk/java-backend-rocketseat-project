@@ -39,7 +39,6 @@ public class AttendeeService {
         return new AttendeesListResponseDTO(attendeeDetailsList);
     }
 
-    @SuppressWarnings("null")
     public Attendee registerAttendee(Attendee newAttendee){
         this.attendeeRepository.save(newAttendee);
         return newAttendee;
@@ -64,7 +63,6 @@ public class AttendeeService {
         this.checkInService.registerCheckIn(attendee);
     }
 
-    @SuppressWarnings("null")
     private Attendee getAttendee(String attendeeId){
         return this.attendeeRepository.findById(attendeeId).orElseThrow(() -> new AttendeeNotFoundException("Attendee not found with ID:" + attendeeId));
     }
